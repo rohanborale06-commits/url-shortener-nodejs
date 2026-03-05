@@ -8,9 +8,9 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB connect
-mongoose.connect("mongodb+srv://admin:admin123@cluster0.xxxxx.mongodb.net/urlshortener", {
-
-});
+mongoose.connect("mongodb+srv://admin:admin123@cluster0.abcd123.mongodb.net/urlshortener?retryWrites=true&w=majority")
+.then(()=>console.log("MongoDB Connected"))
+.catch(err=>console.log(err));
 
 // Schema
 const Url = mongoose.model("Url", {
