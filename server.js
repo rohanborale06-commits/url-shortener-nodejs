@@ -8,6 +8,7 @@ app.use(express.json());
 app.use(cors());
 app.get("/", (req, res) => {
   res.send("URL Shortener API is running 🚀");
+});
 
 // MongoDB connect
 mongoose.connect(process.env.MONGO_URI)
