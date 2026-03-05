@@ -6,11 +6,13 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.get("/", (req, res) => {
+  res.send("URL Shortener API is running 🚀");
 
 // MongoDB connect
-mongoose.connect("mongodb+srv://admin:admin123@cluster0.abcd123.mongodb.net/urlshortener?retryWrites=true&w=majority")
-.then(()=>console.log("MongoDB Connected"))
-.catch(err=>console.log(err));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log(err));
 
 // Schema
 const Url = mongoose.model("Url", {
